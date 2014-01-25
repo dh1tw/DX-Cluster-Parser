@@ -5,10 +5,10 @@ All Classes are checked by an extensive set of Unit Tests.
 ## Content
 **spot_processing.py** contains the following four classes:
 
-1. Station
-2. Spot
-3. WWV
-4. Comment
+1. Station(string)
+2. Spot(string)
+3. WWV(string)
+4. Comment(string)
 
 **cty.py** contains one class which loads the Country File:
 * load_cty(filename)
@@ -16,17 +16,17 @@ All Classes are checked by an extensive set of Unit Tests.
 **testing.py** contains the Unit Tests for the four classes in spot_processing.py
 
 ## General Requirements
-The library works under Python 2.7 and does not require any additional external libraries. 
-Python 3.x has not been tried out
+The library works under Python 2.7 and does not require any additional external libraries.
+Not sure if it will work properly with Python 3.x. 
+
+A copy of the [AD1C's Country File](http://www.country-files.com/cty/history.htm) is included in .plist format. But make sure it the latest one.
 
 ## spot_processing.py
-This gives you a brief description of the Classes in the module spot_processing.py
-_
+This gives you a brief description of the Classes in the module spot_processing.py.
 ### Station(string)
-This Class will automatically try to decode the String "Callsign" and return an object with the attributes below. Lets use the following example:
+This Class will automatically try to decode a String (which should contain the callsign) and return an object with the attributes below. Lets use the following example:
 
 ```python
-import spot_processing
 from spot_processing import Station
 
 stn = Station("EA4/DH1TW/M")
@@ -52,7 +52,6 @@ The object "stn" from above's example contains the following attributes:
 This Class will automatically try to decode the entire DX Spot and return an object with the attributes below. Example:
 
 ```python
-import spot_processing
 from spot_processing import Spot, Station
 
 fixture_Spot = "DX de UA3ZBK:    14170.0  UR8EW/QRP    POWER 2-GU81+SPYDER            1211Z"
@@ -77,7 +76,6 @@ The object "obj" from above's example contains the following attributes:
 This Class will automatically try to decode a Space Weather information and generate an object with the attributes below. It works with WWV and WCY announcements. Example:
 
 ```python
-import spot_processing
 from spot_processing import WWV, Station
 
 fixture_WWV = "WWV de W0MU <21>:   SFI=118, A=8, K=2, No Storms -> Minor w/G1 "
@@ -100,7 +98,6 @@ The object "obj" from above's example contains the following attributes:
 This Class will automatically try to decode a DX Cluster Comment and generate an object with the attributes below. Example:
 
 ```python
-import spot_processing
 from spot_processing import Comment, Station
 
 fixture_comment = "To ALL de IK8CNT: UA4WHX pse beaming south        "
