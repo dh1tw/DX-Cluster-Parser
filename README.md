@@ -1,5 +1,5 @@
 # Description
-The main purpose of this library is decoding & converting all messages from a DX Cluster into structured objects. However it can also be used to check individual callsigns only. Callsign lookup is performed through [AD1C's Country files](http://www.country-files.com/cty/history.htm).
+The main purpose of this library is decoding & converting all messages from a DX Cluster into structured objects. However it can also be used to check individual callsigns only. Callsign lookup is performed through [AD1C's Country files](http://www.country-files.com/cty/).
 All Classes are checked by an extensive set of Unit Tests.
 
 ## Content
@@ -19,7 +19,7 @@ All Classes are checked by an extensive set of Unit Tests.
 The library works under Python 2.7 and does not require any additional external libraries.
 Not sure if it will work properly with Python 3.x. 
 
-A copy of the [AD1C's Country File](http://www.country-files.com/cty/history.htm) is included in .plist format. But make sure it the latest one.
+A copy of the [AD1C's Country File](http://www.country-files.com/cty/) is included in .plist format. But make sure it the latest one.
 
 ## spot_processing.py
 This gives you a brief description of the Classes in the module spot_processing.py.
@@ -111,7 +111,54 @@ The object "obj" from above's example contains the following attributes:
 * obj.valid = True
 
 
-### Known issues
+## Unit Testing
+When you decide to modify / improve the code, you should update the Unit tests and run them frequently. This will help you whenever your change breaks something which worked before. It's very easy to add, modify & run python unit tests.
+### Example
+```shell
+python testing.py
+```
+A successfull run will look like this:
+```shell
+test_comment_all_properties_fixture_1 (__main__.TestSequenceFunctions) ... ok
+test_comment_all_properties_fixture_2 (__main__.TestSequenceFunctions) ... ok
+test_comment_invalid_call_1 (__main__.TestSequenceFunctions) ... ok
+test_comment_invalid_call_2 (__main__.TestSequenceFunctions) ... ok
+test_comment_invalid_input (__main__.TestSequenceFunctions) ... ok
+test_comment_invalid_no_semicolon (__main__.TestSequenceFunctions) ... ok
+test_comment_regex_fixture_3 (__main__.TestSequenceFunctions) ... ok
+test_spot_complete_and_valid (__main__.TestSequenceFunctions) ... ok
+test_spot_frequency (__main__.TestSequenceFunctions) ... ok
+test_spot_frequency_and_call_without_semicolon (__main__.TestSequenceFunctions) ... ok
+test_spot_invalid_frequencies (__main__.TestSequenceFunctions) ... ok
+test_station_aerotime_mobile_flag (__main__.TestSequenceFunctions) ... ok
+test_station_all_properties_with_a_valid_call (__main__.TestSequenceFunctions) ... ok
+test_station_beacon_flag (__main__.TestSequenceFunctions) ... ok
+test_station_invalid_calls_with_special_characters (__main__.TestSequenceFunctions) ... ok
+test_station_lighthouse (__main__.TestSequenceFunctions) ... ok
+test_station_martime_mobile_flag (__main__.TestSequenceFunctions) ... ok
+test_station_mobile (__main__.TestSequenceFunctions) ... ok
+test_station_number_appendix (__main__.TestSequenceFunctions) ... ok
+test_station_portable (__main__.TestSequenceFunctions) ... ok
+test_station_with_invalid_calls (__main__.TestSequenceFunctions) ... ok
+test_station_with_valid_calls (__main__.TestSequenceFunctions) ... ok
+test_wwv_all_properties_fixture_1 (__main__.TestSequenceFunctions) ... ok
+test_wwv_all_properties_fixture_11 (__main__.TestSequenceFunctions) ... ok
+test_wwv_all_properties_fixture_5 (__main__.TestSequenceFunctions) ... ok
+test_wwv_aurora_fixture_12 (__main__.TestSequenceFunctions) ... ok
+test_wwv_invalid_parameters_1 (__main__.TestSequenceFunctions) ... ok
+test_wwv_invalid_parameters_2 (__main__.TestSequenceFunctions) ... ok
+test_wwv_invalid_parameters_3 (__main__.TestSequenceFunctions) ... ok
+test_wwv_invalid_parameters_4 (__main__.TestSequenceFunctions) ... ok
+test_wwv_invalid_parameters_5 (__main__.TestSequenceFunctions) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 0.058s
+
+OK
+```
+
+## Known issues
 * Callsign recognition is very good, but not perfect;
+
 
 

@@ -1,5 +1,27 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*- 
+# Process a DX-Cluster spot and return Spot, Callsign, WWV and Comment as objects 
+# Copyright (c) 2014 Tobias Wellnitz, DH1TW
+	
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+# 
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+# 
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Please fork and contribute your improvements to the Github Repository
+# at https://github.com/dh1tw/DX-Cluster-Parser
+
+# This file contains the unit tests for the classes in spot_processing.py
+# If you modify Classes it's useful to run the unit tests to make sure 
+# nothing has broken.
+
+# Execute the unit tests from command line: "python testing.py"
 
 import sys
 import re
@@ -64,7 +86,7 @@ fixture_wwv_invalid_5 = "WWC de W0MU <12>:   SFI=118, A=1215, K=1,"
 fixture_wwv_invalid_6 = "WWC de W0MU <12>:   SFI=118, A=1215, K=1,"
 fixture_comment_1 = "To ALL de IK8CNT: UA4WHX pse beaming south        "
 fixture_comment_2 = "To ALL de DL5ML: to DX0HQ pse lsn for EU        "
-fixture_comment_3 = 'TO ALL de DL5ML: "§$%&*.* to DX0HQ pse lsn for EU        '
+fixture_comment_3 = 'TO ALL de DL5ML: "$%&*.* to DX0HQ pse lsn for EU        '
 fixture_comment_invalid_1 = "ALL de DL5ML: to DX0HQ pse lsn for EU        "
 fixture_comment_invalid_2 = "TO ALL de 222DL5ML: to DX0HQ pse lsn for EU        "
 fixture_comment_invalid_3 = "TO ALL de DL5ML to DX0HQ pse lsn for EU        "
@@ -302,9 +324,9 @@ class TestSequenceFunctions(unittest.TestCase):
 		self.assertEqual(Station("UR900CC/4").prefix, "UR")
 		
 	def test_station_invalid_calls_with_special_characters(self):
-		self.assertEqual(Station("DK()§DK").valid, False)
+		self.assertEqual(Station("DK()DK").valid, False)
 		self.assertEqual(Station("DK/DK").valid, False)
-		self.assertEqual(Station("'§!§$&/()@").valid, False)
+		self.assertEqual(Station("'!$&/()@").valid, False)
 		self.assertEqual(Station("").valid, False)
 		
 	def test_spot_frequency(self):
