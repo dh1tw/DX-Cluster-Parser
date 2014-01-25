@@ -1,18 +1,19 @@
 # Description
-The main purpose of this library is decoding all messages which from a DX Cluster into structured objects. However it can also be used to check individual callsigns. Callsign lookup is performed through [AD1C's Country files](http://www.country-files.com/cty/history.htm).
-All Classes are checked by an extensive set up Unit Tests.
+The main purpose of this library is decoding & converting all messages from a DX Cluster into structured objects. However it can also be used to check individual callsigns only. Callsign lookup is performed through [AD1C's Country files](http://www.country-files.com/cty/history.htm).
+All Classes are checked by an extensive set of Unit Tests.
 
 ## Content
-spot_processing.py contains the following four classes:
+**spot_processing.py** contains the following four classes:
+
 1. Station
 2. Spot
 3. WWV
 4. Comment
 
-cty.py contains one class which loads the Country File:
+**cty.py** contains one class which loads the Country File:
 * load_cty(filename)
 
-testing.py contains the Unit Tests for the four classes in spot_processing.py
+**testing.py** contains the Unit Tests for the four classes in spot_processing.py
 
 ## General Requirements
 The library works under Python 2.7 and does not require any additional external libraries. 
@@ -21,7 +22,7 @@ Python 3.x has not been tried out
 ## spot_processing.py
 This gives you a brief description of the Classes in the module spot_processing.py
 _
-### Station(callsign)
+### Station(string)
 This Class will automatically try to decode the String "Callsign" and return an object with the attributes below. Lets use the following example:
 
 ```python
@@ -47,7 +48,7 @@ The object "stn" from above's example contains the following attributes:
 * stn.am = False (is Aeronautic Mobile?)
 * stn.beacon = False (is a beacon station?)
 
-### Spot(spot_string)
+### Spot(string)
 This Class will automatically try to decode the entire DX Spot and return an object with the attributes below. Example:
 
 ```python
@@ -72,7 +73,7 @@ The object "obj" from above's example contains the following attributes:
 * obj.band = 20
 * obj.locator = ""
 
-### WWV(wwv_string)
+### WWV(string)
 This Class will automatically try to decode a Space Weather information and generate an object with the attributes below. It works with WWV and WCY announcements. Example:
 
 ```python
@@ -95,7 +96,7 @@ The object "obj" from above's example contains the following attributes:
 * obj.valid = True
 
 
-### Comment(comment_string)
+### Comment(string)
 This Class will automatically try to decode a DX Cluster Comment and generate an object with the attributes below. Example:
 
 ```python
